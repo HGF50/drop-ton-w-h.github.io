@@ -17,6 +17,7 @@
 
 </head>
 <body>
+    
 
 <header>
   <h1>Drop Ton Weh</h1>
@@ -66,10 +67,11 @@
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("sw.js");
+    navigator.serviceWorker.register("/drop-ton-w-h.github.io/sw.js");
   });
 }
 </script>
+
 
 <!-- Script installation -->
 <script>
@@ -90,5 +92,7 @@ installBtn.addEventListener("click", async () => {
   installBtn.style.display = "none";
 });
 </script>
+    
+</body>
 
-
+</html>
