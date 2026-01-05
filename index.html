@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drop Ton Weh</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="/MPO.github.io/manifest.json">
+<meta name="theme-color" content="#000000">
+
+
+</head>
+<body>
+
+<header>
+  <h1>Drop Ton Weh</h1>
+</header>
+
+<main class="products">
+  <div class="card">
+    <img src="https://via.placeholder.com/300">
+    <p>T-shirt Nike</p>
+    <span>5 000 FCFA</span>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300">
+    <p>Chaussures Adidas</p>
+    <span>15 000 FCFA</span>
+  </div>
+</main>
+
+<nav class="bottom-nav">
+  <button>🏠</button>
+  <button>🔍</button>
+  <button>➕</button>
+  <button>💬</button>
+  <button>👤</button>
+</nav>
+
+<script src="app.js"></script>
+
+  </div>
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js")
+      .then(() => console.log("Service Worker activé"))
+      .catch(error => console.log("Erreur SW :", error));
+  }
+</script>
+<!-- BOÎTE D’INSTALLATION -->
+<div id="install-box" style="
+  display:none;
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  right:20px;
+  background:#000;
+  color:#fff;
+  padding:15px;
+  border-radius:10px;
+  z-index:9999;
+  text-align:center;
+">
+  <p>Installer cette application 📱</p>
+  <button onclick="installApp()" style="padding:10px; width:100%;">
+    Installer
+  </button>
+</div>
+
+<script>
+  // SERVICE WORKER
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js");
+  }
+
+  // INSTALLATION PWA
+  let deferredPrompt;
+
+  window.addEventListener("beforeinstallprompt", function(e) {
+    e.preventDefault();
+    deferredPrompt = e;
+    document.getElementById("install-box").style.display = "block";
+  });
+
+  function installApp() {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(() => {
+      deferredPrompt = null;
+      document.getElementById("install-box").style.display = "none";
+    });
+  }
+</script>
+<button id="installBtn"
+style="display:none; position:fixed; bottom:90px; left:50%; transform:translateX(-50%); z-index:999;">
+Installer l’application
+</button>
+
+</body>
+
+</html>
+
