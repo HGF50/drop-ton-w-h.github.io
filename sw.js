@@ -41,5 +41,4 @@ self.addEventListener("fetch", event => {
     })
   );
 });
-
-
+navigator.serviceWorker.register("/drop-ton-w-h.github.io/sw.js");
